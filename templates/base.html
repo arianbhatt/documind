@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}DocuMind - AI Document Chat{% endblock %}</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link the new CSS files -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+    
+    <!-- === ADDED: KaTeX for LaTeX Rendering === -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" xintegrity="sha384-KiWOvVjnN8qwKMvhIqsNOHQG3h4QV8aLmnIFiU8I9L1BsgEDRNU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" xintegrity="sha384-hIoIeYJkLUEtvUeGfxCAexIyN2spKxT3UPs/MblS/YlYnSusY7i+KGYiYs/UWAeM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" xintegrity="sha384-43gviWU0YVjaDtb/Gf1ES3mrjSWRN7EaGj9GT//cdlUwPlHI/WCTmSqXVZffsDu/" crossorigin="anonymous"></script>
+    
+    <!-- === ADDED: Marked.js for Markdown Rendering === -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="theme-dark"> <!-- Default to dark theme -->
+    <div id="app" class="app-container">
+        {% block content %}{% endblock %}
+    </div>
+    
+    <!-- Toast container for notifications -->
+    <div id="toast-container" class="toast-container"></div>
+    
+    <!-- Global loading overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loading-spinner"></div>
+    </div>
+    
+    <!-- 
+    Removed Socket.IO scripts as app.py uses standard HTTP (fetch)
+    -->
+    
+    <!-- Load new JS files -->
+    <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
