@@ -99,7 +99,7 @@ Before you begin, ensure you have the following installed:
 
 ## 📂 Project Structure
 
-````
+```
 documind/
 ├── app.py                 \# Main Flask Controller
 ├── requirements.txt       \# Python Dependencies
@@ -122,5 +122,14 @@ documind/
 └── templates/
 ├── base.html          \# Base Jinja2 template
 └── index.html         \# Main application view
-
 ```
+## 🐛 Troubleshooting
+
+* **`ModuleNotFoundError: No module named 'llama_cpp'`**:
+    Re-install the package: `pip install llama-cpp-python`. If this fails, ensure C++ build tools are installed.
+
+* **Google API Key Error**:
+    Ensure `GOOGLE_API_KEY` is set in `.env` OR enter your key in the "Settings" panel within the web interface.
+
+* **Address already in use**:
+    The app runs on port 5001. If this port is busy, modify the `app.run(port=5001)` line in `app.py`.
