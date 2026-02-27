@@ -70,9 +70,9 @@ def get_llm_instance(model_selection: str, custom_api_key: str = None):
                 raise ValueError("GOOGLE_API_KEY not found in .env and no custom key provided.")
             
             model_map = {
-                "Google (Gemini 2.5 Flash)": "gemini-2.5-flash-preview-09-2025",
+                "Google (Gemini 2.5 Flash)": "gemini-2.5-flash",
             }
-            model_id = model_map.get(model_selection, "gemini-2.5-flash-preview-09-2025")
+            model_id = model_map.get(model_selection, "gemini-2.5-flash")
             
             return ChatGoogleGenerativeAI(
                 model=model_id,
